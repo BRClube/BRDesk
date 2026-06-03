@@ -1,8 +1,9 @@
-/* ===== BR Clube – CSS Consolidado ===== */
+/* ===== Carsegur – CSS Consolidado ===== */
 :root {
-  --brand-dark: #001E44;
-  --brand-light: #00AEEF;
-  --accent: #FFB400;
+  --brand-dark: #1B2D8A;   /* azul Carsegur */
+  --brand-red: #E30613;    /* vermelho Carsegur */
+  --brand-light: #E30613;  /* destaque principal = vermelho */
+  --accent: #1B2D8A;
   --text: #1F2937;
   --muted: #6B7280;
   --bg: #F6F8FB;
@@ -34,15 +35,19 @@ main {
 
 /* ===== Navegação ===== */
 nav {
-  background-color: #000056;
+  background-color: #1B2D8A;
   display: flex;
   align-items: center;
   padding: 10px;
 }
 
 .logo {
-  width: 60px;
-  margin-right: 70px;
+  height: 48px;
+  width: auto;
+  margin-right: 40px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
 }
 
 nav ul {
@@ -57,7 +62,7 @@ nav ul {
 
 nav li {
   float: left;
-  border-right: 1px solid #00c3ff;
+  border-right: 1px solid rgba(255,255,255,.35);
 }
 
 nav li:last-child {
@@ -76,7 +81,7 @@ nav li a {
 }
 
 nav li a:hover {
-  color: rgb(142, 255, 255);
+  color: #ffb3b8;
 }
 
 /* Header alternativo (site-header) */
@@ -118,17 +123,17 @@ nav li a:hover {
   text-decoration: none;
   color: var(--brand-dark);
   font-weight: 700;
-  background: rgba(0, 174, 239, .10);
+  background: rgba(227, 6, 19, .10);
   transition: background .2s ease;
 }
 
 .mainnav a:hover {
-  background: rgba(0, 174, 239, .18);
+  background: rgba(227, 6, 19, .18);
 }
 
 /* ===== Títulos ===== */
 h1 {
-  background-color: #000056;
+  background-color: #1B2D8A;
   font-size: 40px;
   color: white;
   text-align: center;
@@ -146,7 +151,7 @@ h2 {
 }
 
 h2:hover {
-  box-shadow: inset 0 0 0 25px #f3f9ff;
+  box-shadow: inset 0 0 0 25px #fde7e9;
   opacity: 1;
 }
 
@@ -179,7 +184,7 @@ h2.h2-termo {
 }
 
 .dropdown:hover .dropbtn {
-  box-shadow: inset 0 0 0 25px #f3f9ff;
+  box-shadow: inset 0 0 0 25px #fde7e9;
   opacity: 1;
 }
 
@@ -222,14 +227,14 @@ main a {
 #p-ia {
   text-align: center;
   font-size: 18px;
-  color: #000056;
+  color: #1B2D8A;
   font-weight: bold;
   transition: color .2s ease, box-shadow .2s ease;
 }
 
 #p-ia:hover {
-  color: #00aebb;
-  box-shadow: inset 0 0 0 25px #f3f9ff;
+  color: var(--brand-red);
+  box-shadow: inset 0 0 0 25px #fde7e9;
 }
 
 #ia-img {
@@ -239,7 +244,7 @@ main a {
 /* ===== Footer ===== */
 footer {
   font-weight: bold;
-  background-color: #000056;
+  background-color: #1B2D8A;
   color: #fff;
   text-align: center;
   position: fixed;
@@ -298,12 +303,12 @@ select, textarea {
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--brand-light);
-  box-shadow: 0 0 0 3px rgba(0, 174, 239, .18);
+  box-shadow: 0 0 0 3px rgba(227, 6, 19, .18);
 }
 
 textarea {
   margin-bottom: 20px;
-  background-color: #f2f9ff;
+  background-color: #fff5f6;
   resize: vertical;
 }
 
@@ -355,13 +360,13 @@ button:active {
 }
 
 button[onclick*="enviarFormulario"] {
-  background: var(--brand-dark);
+  background: var(--brand-red);
   color: #fff;
 }
 
 .btn-secondary {
-  background: var(--brand-light);
-  color: #00324f;
+  background: var(--brand-dark);
+  color: #fff;
 }
 
 /* Ações do formulário */

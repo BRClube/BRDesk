@@ -3,12 +3,12 @@
 }
 
 header {
-    background-color: #000056;
+    background-color: #1B2D8A;
     text-align: center;
 }
 
 h1 {
-    background-color: #000056;
+    background-color: #1B2D8A;
     font-size: 50px;
     color: white;
     text-align: center;
@@ -33,7 +33,7 @@ input {
 textarea {
     margin-bottom: 20px;
     width: 100%;
-    background-color: #f2f9ff;
+    background-color: #fff5f6;
 }
 
 .brClubeContainer {
@@ -107,7 +107,7 @@ textarea {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #1B2D8A;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -116,7 +116,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #16236d;
 }
 
 b {
@@ -128,11 +128,11 @@ a {
 }
 
 #ar {
-    background-color: rgb(194, 0, 0);
+    background-color: #E30613;
 }
 
 #ar:hover {
-    background-color: rgb(150, 0, 0);
+    background-color: #b40510;
 }
 
 .form-actions {

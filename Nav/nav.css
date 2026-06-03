@@ -5,15 +5,19 @@ body {
 }
 
 nav {
-    background-color: #000056;
+    background-color: #1B2D8A;
     display: flex;
     align-items: center;
     padding: 10px;
 }
 
 .logo {
-    width: 60px; /* ajuste conforme necessário */
-    margin-right: 70px; /* ajuste conforme necessário */
+    height: 48px;
+    width: auto;
+    margin-right: 40px;
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
 }
 
 ul {
@@ -38,12 +42,11 @@ li a {
 }
 
 li a:hover {
-    color: rgb(142, 255, 255);
-    
+    color: #ffb3b8;
 }
 
 li {
-    border-right: 1px solid #00c3ff;
+    border-right: 1px solid rgba(255,255,255,.35);
   }
 
 li:last-child {

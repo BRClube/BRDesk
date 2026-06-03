@@ -71,7 +71,7 @@ function enviarFormulario() {
     informacoes += `<strong>*Referência de Destino:*</strong> ${referenciaDestino}<br><br>`;
     informacoes += `<strong>*Quilometragem (km):*</strong> ${km} km<br><br>`;
     informacoes += `<strong>*Quilometragem total (km):*</strong> ${kmTotal} km<br><br>`;
-    informacoes += `<strong>*RESPONSÁVEL PELO PAGAMENTO:</strong>* ASSOCIAÇÃO BR CLUBE DE BENEFíCIOS`;
+    informacoes += `<strong>*RESPONSÁVEL PELO PAGAMENTO:</strong>* CARSEGUR PROTEÇÃO VEICULAR`;
 
     // Atualize o conteúdo do elemento com id 'texto'
     const elementoTexto = document.getElementById("texto");
