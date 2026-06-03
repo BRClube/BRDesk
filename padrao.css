@@ -5,7 +5,6 @@
 header {
     background-color: #1B2D8A;
     text-align: center;
-    border-bottom: 4px solid #E30613;
 }
 
 h1 {
@@ -13,7 +12,6 @@ h1 {
     font-size: 50px;
     color: white;
     text-align: center;
-    margin: 0;
 }
 
 form {
