@@ -1,7 +1,7 @@
 {
-  "name": "brclubecodes",
+  "name": "brdesk-assistencia24h",
   "version": "1.0.0",
-  "description": "Projeito feito para facilitar processos da empresa.",
+  "description": "Versão enxuta do BR Desk contendo apenas o módulo de Assistência 24 horas.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
