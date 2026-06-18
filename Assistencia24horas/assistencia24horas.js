@@ -26,10 +26,14 @@ function enviarFormulario() {
     const servico = document.getElementById('servico').value;
     const enderecoOrigem = document.getElementById('enderecoOrigem').value;
     const referenciaOrigem = document.getElementById('referenciaOrigem').value;
+    const linkOrigem = document.getElementById('linkOrigem').value;
     const destino = document.getElementById('destino').value;
     const referenciaDestino = document.getElementById('referenciaDestino').value;
+    const linkDestino = document.getElementById('linkDestino').value;
     const km = document.getElementById('km').value;
     const kmTotal = document.getElementById('kmTotal').value;
+    const atendente = document.getElementById('atendente').value;
+    const supervisor = document.getElementById('supervisor').value;
 
 
     const generoElement = document.querySelector('input[name="genero"]:checked');
@@ -67,10 +71,18 @@ function enviarFormulario() {
     informacoes += `<strong>*Serviço:*</strong> ${servico}<br><br>`;
     informacoes += `<strong>*Endereço de Origem:*</strong> ${enderecoOrigem}<br><br>`;
     informacoes += `<strong>*Referência de Origem:*</strong> ${referenciaOrigem}<br><br>`;
+    if (linkOrigem) {
+        informacoes += `<strong>*Link da Origem:*</strong> ${linkOrigem}<br><br>`;
+    }
     informacoes += `<strong>*Destino:*</strong> ${destino}<br><br>`;
     informacoes += `<strong>*Referência de Destino:*</strong> ${referenciaDestino}<br><br>`;
+    if (linkDestino) {
+        informacoes += `<strong>*Link do Destino:*</strong> ${linkDestino}<br><br>`;
+    }
     informacoes += `<strong>*Quilometragem (km):*</strong> ${km} km<br><br>`;
     informacoes += `<strong>*Quilometragem total (km):*</strong> ${kmTotal} km<br><br>`;
+    informacoes += `<strong>*Atendente:*</strong> ${atendente}<br><br>`;
+    informacoes += `<strong>*Supervisor:*</strong> ${supervisor}<br><br>`;
     informacoes += `<strong>*RESPONSÁVEL PELO PAGAMENTO:</strong>* CARSEGUR PROTEÇÃO VEICULAR`;
 
     // Atualize o conteúdo do elemento com id 'texto'
