@@ -4,135 +4,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carsegur | Protocolo de abertura</title>
-    <link rel="stylesheet" href="../padrao.css">
-    <link rel="stylesheet" href="../Nav/nav.css">
+    <title>BR Desk Carsegur | Protocolo de Assistência 24h</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../assets/app.css">
     <link rel="shortcut icon" type="image/png" href="../Images/favicon.ico.png">
 </head>
 
-<body>
+<body data-page="assistencia" data-base="../">
 
-    <nav>
-        <!-- Adicione a imagem da logo -->
-        <img src="../Images/logo.png" alt="Carsegur" class="logo">
+    <div class="app">
+        <aside class="sidebar"></aside>
 
-        <ul>
-            <li><a href="../index.html">Menu</a></li>
-        </ul>
-    </nav>
+        <div class="main">
+            <header class="topbar"></header>
 
-    <header>
-        <h1>PROTOCOLO DE ABERTURA</h1>
-    </header>
-
-    <div id="conteudoNoMeio">
-        <div id="brClubeContainer" class="brClubeContainer">
-            <form id="brClubeForm">
-
-                <label for="protocolo">Protocolo:</label>
-                <input placeholder="Código do protocolo" type="text" id="protocolo" required><br>
-
-                <label for="dataHora">Data/Horário:</label>
-                <input placeholder="" type="datetime-local" id="dataHora" required><br>
-
-                <label for="placa">Placa</label>
-                <input placeholder="Placa do veículo" type="text" id="placa" required><br>
-
-                <label for="modelo">Modelo:</label>
-                <input placeholder="Modelo do veículo" type="text" id="modelo" required><br>
-
-                <label for="cor">Cor:</label>
-                <input placeholder="Cor do veículo" type="text" id="cor" required><br>
-
-                <label for="solicitante">Solicitante:</label>
-                <input placeholder="Nome completo do solicitante" type="text" id="solicitante" required><br>
-
-
-                <label for="telefone">Telefone:</label>
-                <input type="text" placeholder="Número de telefone" id="telefone" maxlength="15"
-                    oninput="formatarTelefone(this)">
-
-                <label for="fatorGerador">Fator Gerador:</label>
-                <input placeholder="Causa do evento" type="text" id="fatorGerador" required><br>
-
-                <label for="observacaoFatorGerador">Observação do Fator Gerador:</label>
-                <textarea placeholder="Observações adicionais..." id="observacaoFatorGerador" required></textarea><br>
-
-                <label for="genero" class="genero">Chave e documento estão no local?</label>
-                <div id="genero">
-                    <label>
-                        <input type="radio" name="genero" value='Sim'> Sim
-                    </label>
-
-                    <label>
-                        <input type="radio" name="genero" value='Não'> Não
-                    </label>
+            <main class="page">
+                <div class="page__head">
+                    <div class="crumb">
+                        <a href="../index.html">Início</a>
+                        <span data-icon="chevronRight"></span>
+                        <span aria-current="page">Assistência 24 horas</span>
+                    </div>
+                    <h1 class="page__title">Abertura de protocolo</h1>
+                    <p class="page__desc">Registre a ocorrência e gere o texto padronizado para acionamento do
+                        serviço.</p>
                 </div>
 
-                <label for="observacaoResposta">Observação:</label>
-                <textarea placeholder="Observações adicionais..." id="observacaoResposta" required></textarea><br>
+                <div class="workspace">
 
-                <label for="genero2" class="genero2">Veículo de Fácil Acesso?</label>
-                <div id="genero2">
-                    <label>
-                        <input type="radio" name="genero2" value='Sim'> Sim
-                    </label>
+                    <!-- ============ FORMULÁRIO ============ -->
+                    <form class="form-col" id="formAssistencia" novalidate>
 
-                    <label>
-                        <input type="radio" name="genero2" value='Não'> Não
-                    </label>
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="clipboard"></span>
+                                <span class="section__title">Protocolo</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label class="label" for="protocolo">Protocolo</label>
+                                        <input class="input" id="protocolo" type="text" placeholder="Ex.: 20260824-001">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="dataHora">Data e horário</label>
+                                        <input class="input" id="dataHora" type="datetime-local">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="car"></span>
+                                <span class="section__title">Veículo</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label class="label" for="placa">Placa</label>
+                                        <input class="input" id="placa" type="text" data-mask="placa"
+                                            placeholder="ABC1D23">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="modelo">Modelo</label>
+                                        <input class="input" id="modelo" type="text" placeholder="Ex.: Onix LT">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="cor">Cor</label>
+                                        <input class="input" id="cor" type="text" placeholder="Ex.: Prata">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="user"></span>
+                                <span class="section__title">Solicitante</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label class="label" for="solicitante">Nome completo</label>
+                                        <input class="input" id="solicitante" type="text"
+                                            placeholder="Nome do solicitante">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="telefone">Telefone</label>
+                                        <input class="input" id="telefone" type="tel" data-mask="telefone"
+                                            inputmode="numeric" placeholder="(62) 99999-8888">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="alert"></span>
+                                <span class="section__title">Ocorrência</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field field--full">
+                                        <label class="label" for="fatorGerador">Fator gerador</label>
+                                        <input class="input" id="fatorGerador" type="text"
+                                            placeholder="Causa do evento. Ex.: pane elétrica">
+                                    </div>
+
+                                    <div class="field field--full">
+                                        <label class="label" for="observacaoFatorGerador">Observação do fator
+                                            gerador</label>
+                                        <textarea class="textarea" id="observacaoFatorGerador"
+                                            placeholder="Detalhe o que o associado relatou"></textarea>
+                                    </div>
+
+                                    <div class="field">
+                                        <span class="label">Chave e documento estão no local?</span>
+                                        <div class="segmented">
+                                            <label>
+                                                <input type="radio" name="chaveDocumento" value="Sim"><span>Sim</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="chaveDocumento" value="Não"><span>Não</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <span class="label">Veículo de fácil acesso?</span>
+                                        <div class="segmented">
+                                            <label>
+                                                <input type="radio" name="facilAcesso" value="Sim"><span>Sim</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="facilAcesso" value="Não"><span>Não</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="field field--full">
+                                        <label class="label" for="obsChaveDocumento">Observação sobre
+                                            chave/documento</label>
+                                        <textarea class="textarea" id="obsChaveDocumento"
+                                            placeholder="Onde estão a chave e o documento?"></textarea>
+                                    </div>
+
+                                    <div class="field field--full">
+                                        <label class="label" for="obsAcesso">Observação sobre acesso do
+                                            veículo</label>
+                                        <textarea class="textarea" id="obsAcesso"
+                                            placeholder="Garagem, subsolo, via estreita, etc."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="shield"></span>
+                                <span class="section__title">Serviço</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field field--full">
+                                        <label class="label" for="servico">Tipo de serviço</label>
+                                        <input class="input" id="servico" type="text"
+                                            placeholder="Ex.: reboque, chaveiro, troca de pneu">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="navigation"></span>
+                                <span class="section__title">Origem</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field field--full">
+                                        <label class="label" for="enderecoOrigem">Endereço de origem</label>
+                                        <input class="input" id="enderecoOrigem" type="text"
+                                            placeholder="Rua, bairro, número">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="referenciaOrigem">Referência</label>
+                                        <input class="input" id="referenciaOrigem" type="text"
+                                            placeholder="Ponto de referência">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="linkOrigem">Link do mapa <span
+                                                class="opt">(opcional)</span></label>
+                                        <input class="input" id="linkOrigem" type="url"
+                                            placeholder="https://maps.google.com/...">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="flag"></span>
+                                <span class="section__title">Destino</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field field--full">
+                                        <label class="label" for="destino">Endereço de destino</label>
+                                        <input class="input" id="destino" type="text" placeholder="Rua, bairro, número">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="referenciaDestino">Referência</label>
+                                        <input class="input" id="referenciaDestino" type="text"
+                                            placeholder="Ponto de referência">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="linkDestino">Link do mapa <span
+                                                class="opt">(opcional)</span></label>
+                                        <input class="input" id="linkDestino" type="url"
+                                            placeholder="https://maps.google.com/...">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="gauge"></span>
+                                <span class="section__title">Quilometragem</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label class="label" for="km">Quilometragem</label>
+                                        <input class="input" id="km" type="text" inputmode="numeric"
+                                            placeholder="Km rodado">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="kmTotal">Quilometragem total</label>
+                                        <input class="input" id="kmTotal" type="text" inputmode="numeric"
+                                            placeholder="Km total rodado">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="headset"></span>
+                                <span class="section__title">Atendimento</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label class="label" for="atendente">Atendente</label>
+                                        <input class="input" id="atendente" type="text" placeholder="Nome do atendente">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="supervisor">Supervisor</label>
+                                        <input class="input" id="supervisor" type="text"
+                                            placeholder="Nome do supervisor">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="actionbar">
+                            <button class="btn btn--primary" id="btnGerar" type="button">
+                                <span data-icon="fileCheck"></span><span>Gerar texto</span>
+                            </button>
+                            <span class="actionbar__hint">Enter também gera o texto</span>
+                        </div>
+                    </form>
+
+                    <!-- ============ PREVIEW ============ -->
+                    <div class="preview-col">
+                        <section class="preview">
+                            <div class="preview__head">
+                                <div>
+                                    <h2 class="preview__title">Texto gerado</h2>
+                                    <p class="preview__desc">Revise o conteúdo antes de copiar para o atendimento.</p>
+                                </div>
+                                <div class="preview__actions">
+                                    <button class="btn btn--secondary btn--sm" id="btnCopiar" type="button"
+                                        data-needs-preview disabled>
+                                        <span data-icon="copy"></span><span>Copiar texto</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="preview__body" id="previewBody">
+                                <div class="empty">
+                                    <div class="empty__icon" data-icon="inbox"></div>
+                                    <div class="empty__title">O texto gerado aparecerá aqui.</div>
+                                    <div class="empty__desc">Preencha o formulário e clique em "Gerar texto".</div>
+                                </div>
+                            </div>
+                            <div class="preview__foot">
+                                <span class="preview__foot-label">Enviar em:</span>
+                                <a class="btn btn--secondary btn--sm"
+                                    href="https://mail.google.com/mail/u/0/#chat/space/AAQAxSZBHu4" target="_blank"
+                                    rel="noopener">
+                                    <span data-icon="chat"></span><span>Workspace</span><span class="ext"
+                                        data-icon="external"></span>
+                                </a>
+                                <a class="btn btn--secondary btn--sm" href="https://painel.multi360.com.br/"
+                                    target="_blank" rel="noopener">
+                                    <span data-icon="send"></span><span>Enviar para o associado</span><span class="ext"
+                                        data-icon="external"></span>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+
                 </div>
-
-                <label for="observacaoResposta2">Observação:</label>
-                <textarea placeholder="Observações adicionais..." id="observacaoResposta2" required></textarea><br>
-
-                <label for="servico">Serviço:</label>
-                <input placeholder="Tipo de serviço" type="text" id="servico" required><br>
-
-                <label for="enderecoOrigem">Endereço de Origem:</label>
-                <input placeholder="Rua, bairro, número" type="text" id="enderecoOrigem" required><br>
-
-                <label for="referenciaOrigem">Referência de Origem:</label>
-                <input placeholder="Ponto de referência" type="text" id="referenciaOrigem" required><br>
-
-                <label for="linkOrigem">Link da Origem:</label>
-                <input placeholder="Link do mapa da origem" type="url" id="linkOrigem"><br>
-
-                <label for="destino">Destino:</label>
-                <input placeholder="Rua, bairro, número" type="text" id="destino" required><br>
-
-                <label for="referenciaDestino">Referência de Destino:</label>
-                <input placeholder="Ponto de referência" type="text" id="referenciaDestino" required><br>
-
-                <label for="linkDestino">Link do Destino:</label>
-                <input placeholder="Link do mapa do destino" type="url" id="linkDestino"><br>
-
-                <label for="km">Quilometragem: </label>
-                <input placeholder="Km rodado" type="text" id="km" required><br>
-
-                <label for="kmTotal">Quilometragem total: </label>
-                <input placeholder="Km total rodado" type="text" id="kmTotal" required><br>
-
-                <label for="atendente">Atendente:</label>
-                <input placeholder="Nome do atendente" type="text" id="atendente" required><br>
-
-                <label for="supervisor">Supervisor:</label>
-                <input placeholder="Nome do supervisor" type="text" id="supervisor" required><br>
-
-                <button type="button" onclick="enviarFormulario()">Enviar</button>
-                <button type="button" onclick="copiarTexto()">Copiar Texto</button>
-
-                <br><br>
-            </form>
+            </main>
         </div>
     </div>
 
-    <div id="texto-container" class="texto-container">
-        <p id="texto"></p>
-    </div>
+    <div class="scrim"></div>
+    <div class="toasts"></div>
 
+    <script src="../assets/app.js"></script>
     <script src="assistencia24horas.js"></script>
-
 </body>
 
 </html>

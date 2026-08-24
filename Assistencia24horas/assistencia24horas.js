@@ -1,91 +1,66 @@
-function formataDataEHorario(dataHora) {
-    const dataFormatada = new Date(dataHora);
+/* Assistência 24h — protocolo de abertura */
+(function () {
+    'use strict';
 
-    const dia = dataFormatada.getDate().toString().padStart(2, '0');
-    const mes = (dataFormatada.getMonth() + 1).toString().padStart(2, '0');
-    const ano = dataFormatada.getFullYear();
-    const hora = dataFormatada.getHours().toString().padStart(2, '0');
-    const minuto = dataFormatada.getMinutes().toString().padStart(2, '0');
+    var D = window.Desk;
 
-    return `${dia}/${mes}/${ano} - Horário: ${hora}h:${minuto}`;
-}
-
-function enviarFormulario() {
-    // Obtenha os valores dos campos do formulário
-    const protocolo = document.getElementById('protocolo').value;
-    const dataHora = document.getElementById('dataHora').value;
-    const placa = document.getElementById('placa').value;
-    const modelo = document.getElementById('modelo').value;
-    const cor = document.getElementById('cor').value;
-    const solicitante = document.getElementById('solicitante').value;
-    const telefone = document.getElementById('telefone').value;
-    const fatorGerador = document.getElementById('fatorGerador').value;
-    const observacaoFatorGerador = document.getElementById('observacaoFatorGerador').value;
-    const observacaoResposta = document.getElementById('observacaoResposta').value;
-    const observacaoResposta2 = document.getElementById('observacaoResposta2').value;
-    const servico = document.getElementById('servico').value;
-    const enderecoOrigem = document.getElementById('enderecoOrigem').value;
-    const referenciaOrigem = document.getElementById('referenciaOrigem').value;
-    const linkOrigem = document.getElementById('linkOrigem').value;
-    const destino = document.getElementById('destino').value;
-    const referenciaDestino = document.getElementById('referenciaDestino').value;
-    const linkDestino = document.getElementById('linkDestino').value;
-    const km = document.getElementById('km').value;
-    const kmTotal = document.getElementById('kmTotal').value;
-    const atendente = document.getElementById('atendente').value;
-    const supervisor = document.getElementById('supervisor').value;
-
-
-    const generoElement = document.querySelector('input[name="genero"]:checked');
-    const genero = generoElement ? generoElement.value : '';
-
-    const genero2Element = document.querySelector('input[name="genero2"]:checked');
-    const genero2 = genero2Element ? genero2Element.value : '';
-
-    let informacoes = '';
-    let saudacao = '';
-    let saudacao2 = '';
-
-
-    if (genero === 'Sim'|| genero === 'Não') {
-      saudacao = `<strong>*Chave e documento no local:*</strong> ${genero}<br><br>`;
+    function linha(rotulo, valor) {
+        return '<strong>*' + rotulo + ':*</strong> ' + D.escapeHTML(valor) + '<br><br>';
     }
 
-    if (genero === 'Sim'|| genero === 'Não') {
-      saudacao2 = `<strong>*Veículo de fácil acesso:*</strong> ${genero2}<br><br>`;
+    function gerarTexto() {
+        var linkOrigem = D.val('linkOrigem');
+        var linkDestino = D.val('linkDestino');
+        var chaveDocumento = D.radio('chaveDocumento');
+        var facilAcesso = D.radio('facilAcesso');
+
+        var html = '';
+        html += linha('Protocolo', D.val('protocolo'));
+        html += linha('Data', D.formatDateTime(D.val('dataHora')));
+        html += linha('Placa', D.val('placa'));
+        html += linha('Modelo', D.val('modelo'));
+        html += linha('Cor', D.val('cor'));
+        html += linha('Solicitante', D.val('solicitante'));
+        html += linha('Telefone', D.val('telefone'));
+        html += linha('Fator Gerador', D.val('fatorGerador'));
+        html += linha('Observação do fator gerador', D.val('observacaoFatorGerador'));
+
+        if (chaveDocumento) {
+            html += linha('Chave e documento no local', chaveDocumento);
+        }
+        html += linha('Observação', D.val('obsChaveDocumento'));
+
+        if (facilAcesso) {
+            html += linha('Veículo de fácil acesso', facilAcesso);
+        }
+        html += linha('Observação', D.val('obsAcesso'));
+
+        html += linha('Serviço', D.val('servico'));
+        html += linha('Endereço de Origem', D.val('enderecoOrigem'));
+        html += linha('Referência de Origem', D.val('referenciaOrigem'));
+        if (linkOrigem) {
+            html += linha('Link da Origem', linkOrigem);
+        }
+        html += linha('Destino', D.val('destino'));
+        html += linha('Referência de Destino', D.val('referenciaDestino'));
+        if (linkDestino) {
+            html += linha('Link do Destino', linkDestino);
+        }
+        html += linha('Quilometragem (km)', D.val('km') + ' km');
+        html += linha('Quilometragem total (km)', D.val('kmTotal') + ' km');
+        html += linha('Atendente', D.val('atendente'));
+        html += linha('Supervisor', D.val('supervisor'));
+        html += '<strong>*RESPONSÁVEL PELO PAGAMENTO:*</strong> CARSEGUR PROTEÇÃO VEICULAR';
+
+        D.setPreview('<div class="message">' + html + '</div>');
     }
 
-    informacoes = `<strong>*Protocolo:*</strong> ${protocolo}<br><br>`;
-    informacoes += `<strong>*Data:*</strong> ${formataDataEHorario(dataHora)}<br><br>`;
-    informacoes += `<strong>*Placa:*</strong> ${placa}<br><br>`;
-    informacoes += `<strong>*Modelo:*</strong> ${modelo}<br><br>`;
-    informacoes += `<strong>*Cor:*</strong> ${cor}<br><br>`;
-    informacoes += `<strong>*Solicitante:*</strong> ${solicitante}<br><br>`;
-    informacoes += `<strong>*Telefone:*</strong> ${telefone}<br><br>`;
-    informacoes += `<strong>*Fator Gerador:*</strong> ${fatorGerador}<br><br>`;
-    informacoes += `<strong>*Observação do fator gerador:*</strong> ${observacaoFatorGerador}<br><br>`;
-    informacoes += saudacao;
-    informacoes += `<strong>*Observação:*</strong> ${observacaoResposta}<br><br>`;
-    informacoes += saudacao2;
-    informacoes += `<strong>*Observação:*</strong> ${observacaoResposta2}<br><br>`;
-    informacoes += `<strong>*Serviço:*</strong> ${servico}<br><br>`;
-    informacoes += `<strong>*Endereço de Origem:*</strong> ${enderecoOrigem}<br><br>`;
-    informacoes += `<strong>*Referência de Origem:*</strong> ${referenciaOrigem}<br><br>`;
-    if (linkOrigem) {
-        informacoes += `<strong>*Link da Origem:*</strong> ${linkOrigem}<br><br>`;
-    }
-    informacoes += `<strong>*Destino:*</strong> ${destino}<br><br>`;
-    informacoes += `<strong>*Referência de Destino:*</strong> ${referenciaDestino}<br><br>`;
-    if (linkDestino) {
-        informacoes += `<strong>*Link do Destino:*</strong> ${linkDestino}<br><br>`;
-    }
-    informacoes += `<strong>*Quilometragem (km):*</strong> ${km} km<br><br>`;
-    informacoes += `<strong>*Quilometragem total (km):*</strong> ${kmTotal} km<br><br>`;
-    informacoes += `<strong>*Atendente:*</strong> ${atendente}<br><br>`;
-    informacoes += `<strong>*Supervisor:*</strong> ${supervisor}<br><br>`;
-    informacoes += `<strong>*RESPONSÁVEL PELO PAGAMENTO:</strong>* CARSEGUR PROTEÇÃO VEICULAR`;
+    document.getElementById('btnGerar').addEventListener('click', gerarTexto);
 
-    // Atualize o conteúdo do elemento com id 'texto'
-    const elementoTexto = document.getElementById("texto");
-    elementoTexto.innerHTML = `${informacoes}`;
-}
+    document.getElementById('btnCopiar').addEventListener('click', function () {
+        D.copyFrom(document.querySelector('#previewBody .message'), this);
+    });
+
+    D.bindEnterToGenerate(document.getElementById('formAssistencia'), gerarTexto);
+    D.focusFirstField();
+})();

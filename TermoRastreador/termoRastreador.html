@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BR Desk Carsegur | Termo de Recebimento de Rastreadores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../assets/app.css">
+    <link rel="shortcut icon" type="image/png" href="../Images/favicon.ico.png">
+</head>
+
+<body data-page="termo" data-base="../">
+
+    <div class="app">
+        <aside class="sidebar"></aside>
+
+        <div class="main">
+            <header class="topbar"></header>
+
+            <main class="page">
+                <div class="page__head">
+                    <div class="crumb">
+                        <a href="../index.html">Início</a>
+                        <span data-icon="chevronRight"></span>
+                        <a href="../Rastreio/rastreio.html">Rastreamento</a>
+                        <span data-icon="chevronRight"></span>
+                        <span aria-current="page">Termo de Recebimento</span>
+                    </div>
+                    <h1 class="page__title">Termo de recebimento de rastreadores</h1>
+                    <p class="page__desc">Gere o termo de responsabilidade assinado pelo técnico que retira os
+                        equipamentos.</p>
+                </div>
+
+                <div class="workspace">
+
+                    <!-- ============ FORMULÁRIO ============ -->
+                    <form class="form-col" id="formTermo" novalidate>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="user"></span>
+                                <span class="section__title">Técnico responsável</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field field--full">
+                                        <label class="label" for="nome">Nome do instalador</label>
+                                        <input class="input" id="nome" type="text" placeholder="Nome completo">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="cpf">CPF</label>
+                                        <input class="input" id="cpf" type="text" data-mask="cpfcnpj"
+                                            inputmode="numeric" placeholder="000.000.000-00">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="rg">RG</label>
+                                        <input class="input" id="rg" type="text" placeholder="Número do RG">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="package"></span>
+                                <span class="section__title">Equipamentos</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="equip" id="equipList"></div>
+                                <div style="padding-top:12px">
+                                    <button class="btn btn--ghost btn--sm" id="btnAddEquip" type="button">
+                                        <span data-icon="plus"></span><span>Adicionar equipamento</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="calendarCheck"></span>
+                                <span class="section__title">Emissão</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label class="label" for="cidade">Cidade</label>
+                                        <input class="input" id="cidade" type="text" value="Goiânia">
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" for="data1">Data</label>
+                                        <input class="input" id="data1" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="actionbar">
+                            <button class="btn btn--primary" id="btnGerar" type="button">
+                                <span data-icon="fileCheck"></span><span>Gerar documento</span>
+                            </button>
+                            <span class="actionbar__hint">Enter também gera o documento</span>
+                        </div>
+                    </form>
+
+                    <!-- ============ PREVIEW ============ -->
+                    <div class="preview-col">
+                        <section class="preview">
+                            <div class="preview__head">
+                                <div>
+                                    <h2 class="preview__title">Documento gerado</h2>
+                                    <p class="preview__desc">Revise o termo antes de imprimir para assinatura.</p>
+                                </div>
+                                <div class="preview__actions">
+                                    <button class="btn btn--secondary btn--sm" id="btnCopiar" type="button"
+                                        data-needs-preview disabled>
+                                        <span data-icon="copy"></span><span>Copiar</span>
+                                    </button>
+                                    <button class="btn btn--secondary btn--sm" id="btnPDF" type="button"
+                                        data-needs-preview disabled>
+                                        <span data-icon="download"></span><span>Baixar PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="preview__body preview__body--sheet" id="previewBody">
+                                <div class="empty">
+                                    <div class="empty__icon" data-icon="inbox"></div>
+                                    <div class="empty__title">O documento aparecerá aqui.</div>
+                                    <div class="empty__desc">Preencha o formulário e clique em "Gerar documento".</div>
+                                </div>
+                            </div>
+                            <div class="preview__foot">
+                                <span class="preview__foot-label">Enviar em:</span>
+                                <a class="btn btn--secondary btn--sm"
+                                    href="https://mail.google.com/mail/u/0/?tab=rm&amp;ogbl#chat/space/AAQAbRhQgxs"
+                                    target="_blank" rel="noopener">
+                                    <span data-icon="chat"></span><span>Workspace</span><span class="ext"
+                                        data-icon="external"></span>
+                                </a>
+                                <a class="btn btn--secondary btn--sm" href="https://painel.multi360.com.br/"
+                                    target="_blank" rel="noopener">
+                                    <span data-icon="send"></span><span>Enviar para o associado</span><span class="ext"
+                                        data-icon="external"></span>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="scrim"></div>
+    <div class="toasts"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="../assets/app.js"></script>
+    <script src="termoRastreador.js"></script>
+</body>
+
+</html>

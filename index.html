@@ -4,39 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carsegur | Assistência 24 horas</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./Nav/nav.css">
+    <title>BR Desk Carsegur | Início</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="assets/app.css">
     <link rel="shortcut icon" type="image/png" href="Images/favicon.ico.png">
 </head>
 
-<body>
-    <nav>
-        <img src="Images/logo.png" alt="Carsegur" class="logo">
+<body data-page="home" data-base="">
 
-        <ul>
-            <li><a href="index.html">Menu</a></li>
-        </ul>
-    </nav>
+    <div class="app">
+        <aside class="sidebar"></aside>
 
-    <main>
+        <div class="main">
+            <header class="topbar"></header>
 
-        <h1 id="utilitarios">SERVIÇOS DA ASSISTÊNCIA 24H</h1>
+            <main class="page">
+                <div class="hero">
+                    <h1 class="hero__title">Olá! O que você deseja realizar?</h1>
+                    <p class="hero__sub">Selecione uma ferramenta para iniciar o atendimento.</p>
+                </div>
 
-        <a href="Assistencia24horas/assistencia24horas.html">
-            <h2>ABRIR PROTOCOLO</h2>
-        </a>
+                <div class="tiles">
+                    <a class="tile" href="Assistencia24horas/assistencia24horas.html">
+                        <span class="tile__icon" data-icon="headset"></span>
+                        <span class="tile__title">Assistência 24 horas</span>
+                        <span class="tile__desc">Registre uma ocorrência e gere o protocolo para acionamento do
+                            serviço.</span>
+                        <span class="tile__go">Abrir protocolo <span data-icon="arrowRight"></span></span>
+                    </a>
 
-        <hr>
+                    <a class="tile" href="Rastreio/rastreio.html">
+                        <span class="tile__icon" data-icon="locate"></span>
+                        <span class="tile__title">Rastreamento</span>
+                        <span class="tile__desc">Termos, agendamentos e orientações de rastreamento.</span>
+                        <span class="tile__go">Ver operações <span data-icon="arrowRight"></span></span>
+                    </a>
+                </div>
 
-        <br>
+                <footer class="page__foot">
+                    © CARSEGUR | 2025<br>
+                    Todos os direitos reservados<br>
+                    Developed by <a href="https://site.cosmmus.com/" target="_blank" rel="noopener">Cosmmus Business</a>
+                </footer>
+            </main>
+        </div>
+    </div>
 
-        <footer>
-            <p id="p-footer">© CARSEGUR | 2025</p>
-            <p id="p-footer">Todos os direitos reservados</p>
-        </footer>
+    <div class="scrim"></div>
+    <div class="toasts"></div>
 
-    </main>
+    <script src="assets/app.js"></script>
 </body>
 
 </html>
