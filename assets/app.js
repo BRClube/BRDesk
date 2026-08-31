@@ -86,7 +86,7 @@
                     text: 'Visão geral',
                     children: [
                         { key: 'termo', href: 'TermoRastreador/termoRastreador.html', icon: 'fileText', text: 'Termo de Recebimento' },
-                        { key: 'agendamento', href: 'TermoRastreador/agendamento.html', icon: 'calendarCheck', text: 'Agendar Instalação' },
+                        { key: 'agendamento', href: 'TermoRastreador/agendamento.html', icon: 'calendarCheck', text: 'Agendar Serviço' },
                         { key: 'orientacoes', href: 'TermoRastreador/orientacaoRastreador.html', icon: 'smartphone', text: 'Orientações Pós-Instalação' }
                     ]
                 }

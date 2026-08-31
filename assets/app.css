@@ -715,9 +715,11 @@ svg {
     height: 16px;
 }
 
-/* Escolha Sim/Não — segmented */
+/* Escolha entre opções — segmented */
 .segmented {
     display: inline-flex;
+    flex-wrap: wrap;
+    gap: 2px;
     padding: 3px;
     background: var(--n-100);
     border-radius: var(--r-sm);

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BR Desk Carsegur | Agendar Instalação de Rastreador</title>
+    <title>BR Desk Carsegur | Agendar Serviço de Rastreador</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -27,17 +27,48 @@
                         <span data-icon="chevronRight"></span>
                         <a href="../Rastreio/rastreio.html">Rastreamento</a>
                         <span data-icon="chevronRight"></span>
-                        <span aria-current="page">Agendar Instalação</span>
+                        <span aria-current="page" id="crumbServico">Agendar Instalação</span>
                     </div>
-                    <h1 class="page__title">Agendar instalação de rastreador</h1>
-                    <p class="page__desc">Registre os dados do associado e do veículo e gere o protocolo de
-                        agendamento.</p>
+                    <h1 class="page__title" id="tituloPagina">Agendar instalação de rastreador</h1>
+                    <p class="page__desc">Escolha o tipo de serviço, registre os dados do associado e do veículo e gere
+                        o protocolo de agendamento.</p>
                 </div>
 
                 <div class="workspace">
 
                     <!-- ============ FORMULÁRIO ============ -->
                     <form class="form-col" id="formAgendamento" novalidate>
+
+                        <section class="section">
+                            <button class="section__head" type="button">
+                                <span class="section__icon" data-icon="clipboard"></span>
+                                <span class="section__title">Tipo de serviço</span>
+                                <span class="section__chev" data-icon="chevronDown"></span>
+                            </button>
+                            <div class="section__body">
+                                <div class="fields">
+                                    <div class="field field--full">
+                                        <span class="label">Serviço a ser agendado</span>
+                                        <div class="segmented">
+                                            <label>
+                                                <input type="radio" name="tipoServico" value="Instalação"
+                                                    checked><span>Instalação</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="tipoServico"
+                                                    value="Desinstalação"><span>Desinstalação</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="tipoServico"
+                                                    value="Manutenção"><span>Manutenção</span>
+                                            </label>
+                                        </div>
+                                        <span class="hint" id="hintServico">Agendamento da instalação de um novo
+                                            equipamento no veículo.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
                         <section class="section">
                             <button class="section__head" type="button">
@@ -137,6 +168,7 @@
                                         <label class="label" for="imei">N.º do IMEI</label>
                                         <input class="input" id="imei" type="text" inputmode="numeric"
                                             placeholder="Número do IMEI do equipamento">
+                                        <span class="hint" id="hintImei">IMEI do equipamento que será instalado.</span>
                                     </div>
                                 </div>
                             </div>
@@ -151,13 +183,20 @@
                             <div class="section__body">
                                 <div class="fields">
                                     <div class="field field--full">
-                                        <label class="label" for="endereco">Endereço da instalação</label>
+                                        <label class="label" for="endereco" id="labelEndereco">Endereço da
+                                            instalação</label>
                                         <input class="input" id="endereco" type="text"
                                             placeholder="Rua, bairro, número">
                                     </div>
                                     <div class="field field--full">
                                         <label class="label" for="dataHora">Data e horário</label>
                                         <input class="input" id="dataHora" type="datetime-local">
+                                    </div>
+                                    <div class="field field--full" id="campoMotivo" hidden>
+                                        <label class="label" for="motivo" id="labelMotivo">Motivo da
+                                            desinstalação</label>
+                                        <textarea class="textarea" id="motivo"
+                                            placeholder="Descreva o motivo informado pelo associado"></textarea>
                                     </div>
                                 </div>
                             </div>
