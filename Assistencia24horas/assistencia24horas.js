@@ -17,6 +17,8 @@
         var html = '';
         html += linha('Protocolo', D.val('protocolo'));
         html += linha('Data', D.formatDateTime(D.val('dataHora')));
+        html += linha('Protocolo do atendimento com o associado', D.val('protocoloAssociado'));
+        html += linha('Protocolo de contato com prestador', D.val('protocoloPrestador'));
         html += linha('Placa', D.val('placa'));
         html += linha('Modelo', D.val('modelo'));
         html += linha('Cor', D.val('cor'));

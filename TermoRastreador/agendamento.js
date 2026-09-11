@@ -74,7 +74,11 @@
             lista.push({ rotulo: servico.motivo, id: 'motivo' });
         }
 
-        lista.push({ rotulo: 'Atendente', id: 'atendente' });
+        lista.push(
+            { rotulo: 'Protocolo do atendimento com o associado', id: 'protocoloAssociado' },
+            { rotulo: 'Protocolo de contato com prestador', id: 'protocoloPrestador' },
+            { rotulo: 'Atendente', id: 'atendente' }
+        );
         return lista;
     }
 
